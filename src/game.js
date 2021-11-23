@@ -4,7 +4,7 @@ import { useGlobalContext } from "./context";
 import { Graph } from "./line-graph";
 
 export const Game = () => {
-    const {chosenStock, capital, currentPrice, sharesOwned, timer, setTimer, increaseDecreaseAlgorithm, toggleShares, tradeError, newGame, bestScore} = useGlobalContext();
+    const {chosenStock, capital, currentPrice, sharesOwned, timer, setTimer, increaseDecreaseAlgorithm, toggleShares, tradeError, newGame, bestScore, days, dailyPrices} = useGlobalContext();
     const countdown = useRef();
 
     useEffect(() => {
@@ -12,19 +12,21 @@ export const Game = () => {
     }, []);
 
     useEffect(() => {
-        console.log(`the time is ${timer} seconds`);
         if (timer === 0) {
             clearInterval(countdown.current);
             console.log("finished");
             return;
         }
-        increaseDecreaseAlgorithm();
+        if (timer !== 60) {
+            console.log(timer)
+            increaseDecreaseAlgorithm();
+            console.log("days:", days);
+            console.log("daily prices:", dailyPrices);
+        }
+        // debugger;
     }, [timer])
 
     const match = bestScore.find(element => element.name === chosenStock);
-    if (match) {
-
-    }
 
     if (chosenStock === "") {
         return (
@@ -53,12 +55,14 @@ export const Game = () => {
             {tradeError === "" ? "":<p className="trade-error">{tradeError}</p>}
         </div>
         <h4>Time Left: {timer} seconds</h4>
-        <h4>Your {capital > 3000 ? "profit":"loss"} is: ${(capital - 3000).toFixed(2)}</h4>
+        <h4>Your {capital >= 3000 ? "profit":"loss"} is: ${(capital - 3000).toFixed(2)}</h4>
         {match ? 
         <h4>High score for {chosenStock}: ${(match.profit).toFixed(2)} profit</h4>
         :
         ""}
+        {timer === 0 ? 
         <Link to="/"><button className="start-btn" onClick={newGame}>NEW GAME</button></Link>
+        :""}
         <Graph />
         </>
     )

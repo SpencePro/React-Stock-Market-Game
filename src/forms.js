@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import { API_KEY } from "./config";
 import { useGlobalContext } from "./context";
+import { FaSearch } from "react-icons/fa";
 
 export const StockLookupForm = () => {
     const {chosenStock, setChosenStock, currentPrice, setDailyPrices, setCurrentPrice, API_KEY} = useGlobalContext();
@@ -42,8 +43,10 @@ export const StockLookupForm = () => {
     return (
         <>
         <form className="stock-lookup">
-            <input type="text" id="stock-symbol" />
-            <button type="button" onClick={()=>setChosenStock(document.getElementById("stock-symbol").value.toUpperCase())} >Search</button>
+            <div className="stock-search-div">
+                <input type="text" id="stock-symbol" placeholder="Stock Symbol" />
+                <button type="button" className="btn search-btn" onClick={()=>setChosenStock(document.getElementById("stock-symbol").value.toUpperCase())} ><FaSearch/></button>
+            </div>
         </form>
         {chosenStock !== "" ? 
         <div className="stock-info">
