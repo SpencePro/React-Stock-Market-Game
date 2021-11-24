@@ -9,11 +9,11 @@ export const Graph = () => {
         labels: [...days],
         datasets: [
             {
-                label: 'Stock Prices ($)',
+                label: 'Stock Prices Over Time ($)',
                 data: [...dailyPrices],
                 fill: false,
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgba(255, 99, 132, 0.2)',
+                backgroundColor: 'rgb(0, 170, 255)',
+                borderColor: 'rgb(0, 170, 255, 0.5)',
             },
         ],
     };
@@ -21,6 +21,20 @@ export const Graph = () => {
     const options = {
         animation: {
             duration: 0
+        },
+        scales: {
+            yAxes: [{
+                title: {
+                    display: true,
+                    text: "Price ($)"
+                }
+            }],
+            xAxes: [{
+                title: {
+                    display: true,
+                    text: "Days"
+                }
+            }]
         }
     }
 

@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home } from "./home";
 import { Game } from "./game";
 import { Error } from "./error";
-// import { useGlobalContext } from "./context";
+import { Header, Footer } from "./header-footer";
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Header />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -20,6 +21,7 @@ function App() {
             <Error />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </div>
   );

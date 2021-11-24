@@ -22,11 +22,11 @@ const AppProvider = ({ children }) => {
     const [sharesOwned, setSharesOwned] = useState(0);
     const numberOfDays = 60;
     const gameStart = useRef(false);
-    // const [gameStart, setGameStart] = useState(false);
     const [timer, setTimer] = useState(numberOfDays);
     const [tradeError, setTradeError] = useState("");
     const plusOrMinus = ["plus", "plus", "minus"];
     const [bestScore, setBestScore] = useState(getLocalStorageScore()); 
+    const [newHighScore, setNewHighScore] = useState(false);
     const API_KEY = "OeAFFmMliFG5orCUuwAKQ8l4WWFQ67YX"; // default API key for MCD, free to use, no limits, use for testing
     
     const newGame = () => {
@@ -39,7 +39,7 @@ const AppProvider = ({ children }) => {
         setTimer(numberOfDays);
         setTradeError("");
         gameStart.current = false;
-        // setGameStart(false);
+        setNewHighScore(false);
         return;
     }
 
@@ -144,6 +144,7 @@ const AppProvider = ({ children }) => {
                     profit: currentProfit,
                 };
                 setBestScore([newBestScore]);
+                setNewHighScore(true);
             }
             else {
                 const match = bestScore.find(element => element.name === chosenStock);
@@ -159,6 +160,7 @@ const AppProvider = ({ children }) => {
                         const index = bestScore.indexOf(match);
                         bestScore.splice(index, 1, newBestScore);
                         setBestScore([...bestScore]);
+                        setNewHighScore(true);
                     }
                 }
                 else {
@@ -168,6 +170,7 @@ const AppProvider = ({ children }) => {
                         profit: currentProfit,
                     };
                     setBestScore([...bestScore, newBestScore]);
+                    setNewHighScore(true);
                 }
             }
         };
@@ -182,7 +185,7 @@ const AppProvider = ({ children }) => {
 
 
     return (
-        <AppContext.Provider value={{ capital, setCapital, chosenStock, setChosenStock, newGame, currentPrice, setCurrentPrice, dailyPrices, setDailyPrices, sharesOwned, setSharesOwned, timer, setTimer, increaseDecreaseAlgorithm, toggleShares, tradeError, bestScore, days, setDays, gameStart, API_KEY }}>
+        <AppContext.Provider value={{ capital, setCapital, chosenStock, setChosenStock, newGame, currentPrice, setCurrentPrice, dailyPrices, setDailyPrices, sharesOwned, setSharesOwned, timer, setTimer, increaseDecreaseAlgorithm, toggleShares, tradeError, bestScore, days, setDays, gameStart, newHighScore, API_KEY }}>
             {children}
         </AppContext.Provider>
     );

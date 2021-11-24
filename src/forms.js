@@ -45,7 +45,7 @@ export const StockLookupForm = () => {
         <form className="stock-lookup">
             <div className="stock-search-div">
                 <input type="text" id="stock-symbol" placeholder="Stock Symbol" />
-                <button type="button" className="btn search-btn" onClick={()=>setChosenStock(document.getElementById("stock-symbol").value.toUpperCase())} ><FaSearch/></button>
+                <button type="button" className="search-btn" onClick={()=>setChosenStock(document.getElementById("stock-symbol").value.toUpperCase())} ><FaSearch className="search-icon"/></button>
             </div>
         </form>
         {chosenStock !== "" ? 
@@ -58,21 +58,4 @@ export const StockLookupForm = () => {
         ""}
         </>
     );
-        
-    // fetch(`https://stock-data-yahoo-finance-alternative.p.rapidapi.com/v6/finance/quote?symbols=${stockSymbol}`, {
-    //     "method": "GET",
-    //     "headers": {
-    //         "x-rapidapi-key": API_KEY,
-    //         "x-rapidapi-host": "stock-data-yahoo-finance-alternative.p.rapidapi.com"
-    //     }
-    //     })
-    //     .then(function(response) {
-    //         return response.json();
-    //     }).then(function(data) {
-    //         console.log(data);
-    //     }).catch(err => {
-    //         console.error(err);
-    //     });
-        // console.log(API_KEY);
-        // console.log(stockSymbol)
 }
