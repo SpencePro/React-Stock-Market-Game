@@ -1,15 +1,14 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import { useGlobalContext } from "./context";
 import { BsInfoCircle } from "react-icons/bs";
+import { AiOutlineStock } from "react-icons/ai";
 
 export const Header = () => {
-    const {newGame} = useGlobalContext();
 
     return (
         <>
         <div className="header">
-            <h1><Link to="/" onClick={newGame}>Stock Game</Link></h1>
+            <h1 className="header-icon"><AiOutlineStock/></h1>
+            <h1>Stock Game</h1>
         </div>
         </>
     )

@@ -6,7 +6,8 @@ export const Error = () => {
         <>
         <section>
             <div className="error-div"> 
-                <h2>Oops! This page doesn't exist</h2>
+                <h1>Oops!</h1>
+                <h2>This page doesn't exist</h2>
                 <Link to="/"><button className="btn">Return Home</button></Link>
             </div>
         </section>

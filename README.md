@@ -19,4 +19,4 @@ The project has the following features:
 - Lookup real value of stocks with search box
 - Dynamically updating line chart
 - Ability to sell and buy stocks
-- Tracking the player's best scores for each stock
+- Track the player's best scores for each stock

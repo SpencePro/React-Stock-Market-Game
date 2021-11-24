@@ -32,6 +32,7 @@ header {
 
 .inactive {
   opacity: 0.5;
+  pointer-events: none;
 }
 
 .inactive button {
@@ -48,9 +49,16 @@ h1 {
 }
 
 .header {
+  display: flex;
+  justify-content: center;
   height: fit-content;
   background-color: #219154;
   color: white;
+}
+
+.header-icon {
+  margin-right: 1rem;
+  margin-top: 0.3rem;
 }
 
 .header a {
@@ -158,6 +166,11 @@ input {
   background-color: #cbf5de;
 }
 
+.game-start {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .game-start h4, .stock-info h4 {
   margin-top: 0rem;
   margin-bottom: 0.5rem;
@@ -213,6 +226,11 @@ canvas {
   margin-bottom: 2rem;
 }
 
+.chart-div p {
+  color: #808080;
+  margin-bottom: 0;
+}
+
 .reset-link {
   width: fit-content;
   margin: auto;
@@ -241,4 +259,31 @@ footer {
 
 .footer p {
   margin-left: 0.5rem;
+}
+
+/* Error Page */
+
+.error-div h1 {
+  font-size: xxx-large;
+}
+
+.error-div h2 {
+  margin-top: 0;
+}
+
+/* Loading */
+
+.loading-icon {
+  animation-name: rotate;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

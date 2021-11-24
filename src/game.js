@@ -4,7 +4,7 @@ import { useGlobalContext } from "./context";
 import { Graph } from "./line-graph";
 
 export const Game = () => {
-    const {chosenStock, capital, currentPrice, sharesOwned, timer, setTimer, increaseDecreaseAlgorithm, toggleShares, tradeError, newGame, bestScore, days, dailyPrices, newHighScore} = useGlobalContext();
+    const {chosenStock, capital, currentPrice, sharesOwned, timer, setTimer, increaseDecreaseAlgorithm, toggleShares, tradeError, newGame, bestScore, newHighScore} = useGlobalContext();
     const countdown = useRef();
 
     useEffect(() => {
@@ -14,16 +14,11 @@ export const Game = () => {
     useEffect(() => {
         if (timer === 0) {
             clearInterval(countdown.current);
-            console.log("finished");
             return;
         }
         if (timer !== 60) {
-            console.log(timer)
             increaseDecreaseAlgorithm();
-            console.log("days:", days);
-            console.log("daily prices:", dailyPrices);
         }
-        // debugger;
     }, [timer])
 
     const match = bestScore.find(element => element.name === chosenStock);
