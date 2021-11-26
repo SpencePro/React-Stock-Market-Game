@@ -20,3 +20,4 @@ The project has the following features:
 - Dynamically updating line chart
 - Ability to sell and buy stocks
 - Track the player's best scores for each stock
+- Mobile responsive with media queries
