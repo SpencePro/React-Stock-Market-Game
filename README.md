@@ -4,10 +4,12 @@
 
 This browser game made with React simulates buying and selling shares of a stock on the stock market as it increases and decreases in value. The user chooses a stock, the [End-Of-Day Historical Stock Market Data API](https://eodhistoricaldata.com/financial-apis/api-for-historical-data-and-volumes/) is called for that stock's most recent price, and then an algorithm simulates the price increasing or decreasing every second, for a total of 60 seconds per game. The objective of the game is maximize profit, given a set amount of initial starting capital. 
 
+This game can be found here: [https://stock-market-game-react.herokuapp.com/](https://stock-market-game-react.herokuapp.com/)
+
 ### Tech Stack
 
 The project is built with the following technologies:
-- React.js
+- React.js + Hooks
 - Chart.js
 - HTML5
 - CSS3
