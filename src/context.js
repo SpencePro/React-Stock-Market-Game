@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
-// import { API_KEY } from './config';
+import { API_KEY } from './config';
 
 const AppContext = React.createContext();
 
@@ -28,7 +28,8 @@ const AppProvider = ({ children }) => {
     const plusOrMinus = ["plus", "plus", "minus"];
     const [bestScore, setBestScore] = useState(getLocalStorageScore()); 
     const [newHighScore, setNewHighScore] = useState(false);
-    const API_KEY = "OeAFFmMliFG5orCUuwAKQ8l4WWFQ67YX";
+    // API key for testing:
+    // const API_KEY = "OeAFFmMliFG5orCUuwAKQ8l4WWFQ67YX";
     
     const newGame = () => {
         setCapital(3000);
