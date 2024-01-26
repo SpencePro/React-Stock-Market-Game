@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Loading } from "./loading";
 
 export const StockLookupForm = () => {
-    const {chosenStock, setChosenStock, currentPrice, setCurrentPrice, startGame, API_KEY} = useGlobalContext();
+    const {chosenStock, setChosenStock, currentPrice, setCurrentPrice, startGame, API_KEY, darkMode } = useGlobalContext();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
@@ -38,12 +38,12 @@ export const StockLookupForm = () => {
         <>
         <div className="stock-lookup">
             <div className="stock-search-div">
-                <input type="text" id="stock-symbol" placeholder="Stock Symbol" />
+                <input type="text" id="stock-symbol" className={ darkMode ? 'dark-search' : ''} placeholder="Stock Symbol" />
                 <button type="button" className="search-btn" onClick={()=>setChosenStock(document.getElementById("stock-symbol").value.toUpperCase())} ><FaSearch className="search-icon"/></button>
             </div>
         </div>
         {chosenStock !== "" && loading === false && error === false ? 
-        <div className="stock-info">
+        <div className={ darkMode ? "dark-stock-info" : "stock-info"}>
             <h4>Chosen Stock: {chosenStock}</h4>
             <h4>Starting Capital: $3000</h4>
             <h4>Price per Share: ${currentPrice}</h4>

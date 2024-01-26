@@ -4,10 +4,12 @@ import { Home } from "./home";
 import { Game } from "./game";
 import { Error } from "./error";
 import { Header, Footer } from "./header-footer";
+import { useGlobalContext } from './context';
 
 function App() {
+  const { darkMode } = useGlobalContext();
   return (
-    <div className="App">
+    <div id="app" className={ darkMode ? 'dark-App' : 'App'}>
       <Router>
         <Header />
         <Switch>

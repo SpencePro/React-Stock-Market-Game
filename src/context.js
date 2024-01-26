@@ -28,6 +28,7 @@ const AppProvider = ({ children }) => {
     const plusOrMinus = ["plus", "plus", "minus"];
     const [bestScore, setBestScore] = useState(getLocalStorageScore()); 
     const [newHighScore, setNewHighScore] = useState(false);
+    const [darkMode, setDarkMode] = useState(false);
     // API key for testing:
     // const API_KEY = "OeAFFmMliFG5orCUuwAKQ8l4WWFQ67YX";
     
@@ -152,7 +153,33 @@ const AppProvider = ({ children }) => {
 
 
     return (
-        <AppContext.Provider value={{ capital, setCapital, chosenStock, setChosenStock, newGame, currentPrice, setCurrentPrice, dailyPrices, setDailyPrices, sharesOwned, setSharesOwned, timer, setTimer, increaseDecreaseAlgorithm, toggleShares, tradeError, bestScore, days, setDays, gameStart, startGame, newHighScore, API_KEY }}>
+        <AppContext.Provider value={{
+            capital
+            , setCapital
+            , chosenStock
+            , setChosenStock
+            , newGame
+            , currentPrice
+            , setCurrentPrice
+            , dailyPrices
+            , setDailyPrices
+            , sharesOwned
+            , setSharesOwned
+            , timer
+            , setTimer
+            , increaseDecreaseAlgorithm
+            , toggleShares
+            , tradeError
+            , bestScore
+            , days
+            , setDays
+            , gameStart
+            , startGame
+            , newHighScore
+            , API_KEY
+            , darkMode
+            , setDarkMode
+        }}>
             {children}
         </AppContext.Provider>
     );
