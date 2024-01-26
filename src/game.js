@@ -4,7 +4,7 @@ import { useGlobalContext } from "./context";
 import { Graph } from "./line-graph";
 
 export const Game = () => {
-    const {chosenStock, capital, currentPrice, sharesOwned, timer, setTimer, increaseDecreaseAlgorithm, toggleShares, tradeError, newGame, bestScore, newHighScore} = useGlobalContext();
+    const {chosenStock, capital, currentPrice, sharesOwned, timer, setTimer, increaseDecreaseAlgorithm, toggleShares, tradeError, newGame, bestScore, newHighScore, darkMode} = useGlobalContext();
     const countdown = useRef();
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export const Game = () => {
     }
 
     return (
-        <div className="game-board">
+        <div className={darkMode ? 'dark-game-board' : 'game-board'}>
             <h2>STOCK GAME</h2>
             <div className="game-stats">
                 <div className="section-1">

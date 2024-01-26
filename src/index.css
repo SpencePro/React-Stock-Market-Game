@@ -201,10 +201,11 @@ canvas {
   max-width: fit-content;
 }
 
-.game-board {
+.game-board, .dark-game-board {
   display: flex;
   margin: 2rem;
   flex-direction: column;
+  text-align: center;
 }
 
 .game-board h2 {
@@ -228,6 +229,8 @@ canvas {
   padding: 0.5rem;
   border-radius: 5px;
   background-color: #cbf5de;
+  width: 16rem;
+  box-shadow: 0px 1px 6px gray;
 }
 
 .loss {
@@ -335,10 +338,10 @@ footer {
 /* Graph */
 
 @media (max-width:660px) {
-  .game-board {
+  .game-board, .dark-game-board {
     margin: 0;
   }
-  .game-board h2 {
+  .game-board h2, .dark-game-board h2 {
     margin-bottom: 0;
   }
   .game-stats {
@@ -397,4 +400,21 @@ footer {
 
 .dark-stock-info {
   background-color: cadetblue;
+}
+
+.dark-game-board {
+  & h2 {
+    margin-top: 0;
+    color: white;
+  }
+  & .gain {
+    color: #cbf5de;
+  }
+  & .chart-div p {
+    color: white;
+  }
+  & .section-1, .section-2, .section-3 {
+    background-color: cadetblue;
+    box-shadow: 0px 1px 6px black;
+  }
 }

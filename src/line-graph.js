@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 import { useGlobalContext } from "./context";
 
 export const Graph = () => {
-    const {dailyPrices, days} = useGlobalContext();
+    const {dailyPrices, days, darkMode} = useGlobalContext();
 
     const data = {
         labels: [...days],
@@ -12,8 +12,8 @@ export const Graph = () => {
                 label: 'Stock Prices Over Time ($)',
                 data: [...dailyPrices],
                 fill: false,
-                backgroundColor: 'rgb(0, 170, 255)',
-                borderColor: 'rgb(0, 170, 255, 0.5)',
+                backgroundColor: darkMode ? 'rgb(131, 209, 247)' : 'rgb(0, 170, 255)',
+                borderColor: darkMode ? 'rgb(0, 170, 255)' : 'rgb(0, 170, 255, 0.5)',
             },
         ],
     };
